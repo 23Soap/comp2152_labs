@@ -51,6 +51,7 @@ def count_by_field(findings, field):
     for f in findings:
         val = f[field]
         counts[val] = counts.get(val, 0) + 1
+        return counts
 
 
 
@@ -67,8 +68,8 @@ def filter_findings(findings, field, value):
 #   Return the top n as a list of (subdomain, count) tuples
 #   Hint: sorted(counts.items(), key=lambda x: x[1], reverse=True)[:n]
 def top_subdomains(findings, n):
-    counts = count_by_field(findings, "severity")
-    return sorted(counts.items(), key=lambda x: x[1], reverse=True())[:n]
+    counts = count_by_field(findings, "subdomain")
+    return sorted(counts.items(), key=lambda x: x[1], reverse=True)[:n]
 
 
 # --- Main (provided) ---
